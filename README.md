@@ -13,10 +13,6 @@ This script provides an interactive, menu-driven interface to simplify the proce
 -   **Dependency Checker:** Automatically checks for required tools and offers to install them on Debian-based systems.
 -   **Workspace Management:** Keeps source images, extracted files, and repacked images organized in separate directories.
 
-## Preview
-
-![Main Menu](https://user-images.githubusercontent.com/893307# EROFS Helper Script
-
 A versatile script for unpacking and repacking Android system images on Linux. It supports various filesystems like EXT4, EROFS, and F2FS, and meticulously preserves file attributes such as xattrs, contexts, ownership, and permissions.
 
 This script provides an interactive, menu-driven interface to simplify the process of modding Android images.
@@ -57,4 +53,5 @@ sudo modprobe f2fs
 -   Original scripts by **@ravindu644**
 -   Enhancements and interactive menu by **@deuxielll**
 -   `erofs-utils` by the **EROFS team**
+
 
