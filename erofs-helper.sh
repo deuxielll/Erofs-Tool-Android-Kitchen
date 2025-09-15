@@ -119,10 +119,10 @@ main() {
                             read -rsn2 key
                             case "$key" in
                                 '[A')
-                                    dir_choice_index=$(( (dir_choice_index - 1 + ${#dir_files[@]}) % ${#dirFiles[@]} ))
+                                    dir_choice_index=$(( (dir_choice_index - 1 + ${#dir_files[@]}) % ${#dir_files[@]} ))
                                     ;;
                                 '[B')
-                                    dir_choice_index=$(( (dir_choice_index + 1) % ${#dirFiles[@]} ))
+                                    dir_choice_index=$(( (dir_choice_index + 1) % ${#dir_files[@]} ))
                                     ;;
                             esac
                             ;;
