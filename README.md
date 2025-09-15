@@ -32,7 +32,7 @@ This script provides an interactive, menu-driven interface to simplify the proce
 
 ## Preview
 
-![Erofs-Tools](https://fsgezdakoianpjhingyz.supabase.co/storage/v1/object/public/images/046a2967-8d7b-4349-9db9-70db0ac4bd56.png)
+[![Erofs-Tools](https://fsgezdakoianpjhingyz.supabase.co/storage/v1/object/public/images/046a2967-8d7b-4349-9db9-70db0ac4bd56.png)](https://fsgezdakoianpjhingyz.supabase.co/storage/v1/object/public/images/046a2967-8d7b-4349-9db9-70db0ac4bd56.png)
 
 1.  **Place your images:** Copy the image files you want to unpack into the `original_images` directory.
 2.  **Run the script:** Execute the main helper script with root privileges:
@@ -57,3 +57,4 @@ sudo modprobe f2fs
 -   Original scripts by **@ravindu644**
 -   Enhancements and interactive menu by **@deuxielll**
 -   `erofs-utils` by the **EROFS team**
+
