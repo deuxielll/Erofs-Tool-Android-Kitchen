@@ -97,6 +97,9 @@ check_dependencies() {
             if [[ ! " ${missing_pkg[@]} " =~ " uuid-dev " ]]; then
                 missing_pkg+=("uuid-dev")
             fi
+            if [[ ! " ${missing_pkg[@]} " =~ " liblz4-dev " ]]; then
+                missing_pkg+=("liblz4-dev")
+            fi
         fi
 
         # Show found dependencies only when some are missing
@@ -134,7 +137,7 @@ check_dependencies() {
                     cd erofs-utils
                     mkdir -p m4
                     ./autogen.sh
-                    ./configure --enable-fuse --enable-multithreading
+                    ./configure --enable-fuse --enable-multithreading --with-lz4
                     make
                     sudo make install
                     cd ..
