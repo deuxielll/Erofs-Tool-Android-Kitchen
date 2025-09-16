@@ -38,7 +38,7 @@ check_dependencies() {
     local missing_deps=0
     local missing_cmds=()
     # Check for libtoolize as a proxy for libtool
-    local deps=("make" "automake" "libtoolize" "git" "fusermount3" "uuidgen" "mkfs.erofs" "mkfs.ext4" "simg2img" "tar" "sha256sum" "numfmt" "stat" "awk" "sed" "grep" "find" "chown" "chmod" "mount" "umount" "e2fsck" "dd")
+    local deps=("make" "automake" "libtoolize" "git" "fusermount3" "uuidgen" "mkfs.erofs" "mkfs.ext4" "simg2img" "tar" "sha256sum" "numfmt" "stat" "awk" "sed" "grep" "find" "chown" "chmod" "mount" "umount" "e2fsck" "dd" "pkg-config" "aclocal")
 
     for cmd in "${deps[@]}"; do
         if ! command -v "$cmd" &> /dev/null; then
@@ -74,6 +74,8 @@ check_dependencies() {
             ["umount"]="util-linux"
             ["e2fsck"]="e2fsprogs"
             ["dd"]="coreutils"
+            ["pkg-config"]="pkg-config"
+            ["aclocal"]="automake"
         )
         
         local missing_pkg=()
@@ -89,6 +91,13 @@ check_dependencies() {
                 fi
             fi
         done
+
+        # If building erofs-utils from source, ensure uuid-dev is installed
+        if $install_erofs_from_source; then
+            if [[ ! " ${missing_pkg[@]} " =~ " uuid-dev " ]]; then
+                missing_pkg+=("uuid-dev")
+            fi
+        fi
 
         # Show found dependencies only when some are missing
         for cmd in "${deps[@]}"; do
@@ -123,6 +132,7 @@ check_dependencies() {
                     cd ~
                     git clone https://github.com/erofs/erofs-utils.git
                     cd erofs-utils
+                    mkdir -p m4
                     ./autogen.sh
                     ./configure --enable-fuse --enable-multithreading
                     make
