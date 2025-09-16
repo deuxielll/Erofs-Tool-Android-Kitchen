@@ -25,6 +25,16 @@ print_banner() {
 }
 
 check_dependencies() {
+    # Check for Windows
+    if [[ "$(uname -s)" == *"_NT"* ]]; then
+        echo -e "${YELLOW}Windows detected.${RESET}"
+        echo -e "${BLUE}This script is designed for Linux-based environments.${RESET}"
+        echo -e "For Windows, it's recommended to use Windows Subsystem for Linux (WSL)."
+        echo -e "Please install WSL and run this script from within the WSL terminal."
+        echo -e "For more information on WSL: https://learn.microsoft.com/en-us/windows/wsl/install"
+        exit 1
+    fi
+
     local missing_deps=0
     local missing_cmds=()
     # Check for libtoolize as a proxy for libtool

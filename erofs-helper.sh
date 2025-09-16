@@ -17,10 +17,10 @@ main() {
     print_banner
 
     # Check for root privileges
-    if [ "$EUID" -ne 0 ]; then
-      echo -e "${RED}This script requires root privileges. Please run with sudo.${RESET}"
-      exit 1
-    fi
+    # if [ "$EUID" -ne 0 ]; then
+    #   echo -e "${RED}This script requires root privileges. Please run with sudo.${RESET}"
+    #   exit 1
+    # fi
 
     check_dependencies
 
